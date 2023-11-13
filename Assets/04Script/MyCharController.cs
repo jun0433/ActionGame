@@ -25,6 +25,12 @@ public class MyCharController : MonoBehaviour
     private int aniHash_Walk = Animator.StringToHash("isWalk");
 
 
+    private FixedJoystick joystick;
+
+    private GameObject obj;
+
+
+
     private void Awake()
     {
         charState = GetComponent<CharState>();
@@ -33,6 +39,19 @@ public class MyCharController : MonoBehaviour
         {
             Debug.Log("MyCharController.cs - Awake() - anim 참조 실패");
         }
+
+        obj = GameObject.Find("Fixed Joystick");
+        if (obj != null)
+        {
+            if(!obj.TryGetComponent<FixedJoystick>(out joystick))
+            {
+                Debug.Log("MyCharController.cs - Awake() - joystick 참조 실패");
+            }
+        }
+        else
+        {
+            Debug.Log("MyCharController.cs - Awake() - 조이스틱이 월드에 배치되지 않음");
+        }
     }
 
     private void Update()
@@ -40,7 +59,6 @@ public class MyCharController : MonoBehaviour
         UserInput();
         Locomotion();
         CharAnims();
-
     }
 
 
@@ -49,6 +67,9 @@ public class MyCharController : MonoBehaviour
     {
         move.x = Input.GetAxisRaw("Horizontal");
         move.z = Input.GetAxisRaw("Vertical");
+        move.x += joystick.Horizontal;
+        move.z += joystick.Vertical;
+
         move.Normalize();
 
         input_Attack01 = Input.GetKeyDown(KeyCode.Space);
