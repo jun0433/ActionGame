@@ -1,0 +1,333 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18be3dd4207ecc5469be1398817064f7, type: 3}
+  m_Name: ActionGame
+  m_EditorClassIdentifier: 
+  ItemData:
+  - id: 1001
+    name: "\uB2E8\uAC80"
+    iconImg: ItemIcon/itemicon_equipment_sword
+    sellGold: 10
+    attackDamage: 5
+    attackRange: 2
+    attackRate: 1
+    equip: 1
+  - id: 1002
+    name: "\uB2E8\uAC80+1"
+    iconImg: ItemIcon/itemicon_equipment_sword
+    sellGold: 10
+    attackDamage: 10
+    attackRange: 2
+    attackRate: 1
+    equip: 1
+  - id: 1003
+    name: "\uB2E8\uAC80+2"
+    iconImg: ItemIcon/itemicon_equipment_sword
+    sellGold: 10
+    attackDamage: 15
+    attackRange: 2
+    attackRate: 1
+    equip: 1
+  - id: 1004
+    name: "\uB2E8\uAC80+3"
+    iconImg: ItemIcon/itemicon_equipment_sword
+    sellGold: 10
+    attackDamage: 20
+    attackRange: 2
+    attackRate: 1
+    equip: 1
+  - id: 1005
+    name: "\uB2E8\uAC80+4"
+    iconImg: ItemIcon/itemicon_equipment_sword
+    sellGold: 10
+    attackDamage: 25
+    attackRange: 2
+    attackRate: 1
+    equip: 1
+  - id: 2001
+    name: "\uB3C4\uB07C"
+    iconImg: ItemIcon/itemicon_equipment_weapon_ax
+    sellGold: 20
+    attackDamage: 7
+    attackRange: 3
+    attackRate: 1
+    equip: 1
+  - id: 2002
+    name: "\uB3C4\uB07C+1"
+    iconImg: ItemIcon/itemicon_equipment_weapon_ax
+    sellGold: 20
+    attackDamage: 14
+    attackRange: 3
+    attackRate: 1
+    equip: 1
+  - id: 2003
+    name: "\uB3C4\uB07C+2"
+    iconImg: ItemIcon/itemicon_equipment_weapon_ax
+    sellGold: 20
+    attackDamage: 21
+    attackRange: 3
+    attackRate: 1
+    equip: 1
+  - id: 2004
+    name: "\uB3C4\uB07C+3"
+    iconImg: ItemIcon/itemicon_equipment_weapon_ax
+    sellGold: 20
+    attackDamage: 28
+    attackRange: 3
+    attackRate: 1
+    equip: 1
+  - id: 2005
+    name: "\uB3C4\uB07C+4"
+    iconImg: ItemIcon/itemicon_equipment_weapon_ax
+    sellGold: 20
+    attackDamage: 35
+    attackRange: 3
+    attackRate: 1
+    equip: 1
+  - id: 3001
+    name: "\uB098\uBB34\uD65C"
+    iconImg: ItemIcon/itemicon_equipment_weapon_bow
+    sellGold: 30
+    attackDamage: 10
+    attackRange: 10
+    attackRate: 1
+    equip: 1
+  - id: 4001
+    name: "\uD574\uBA38"
+    iconImg: ItemIcon/itemicon_equipment_weapon_hammer
+    sellGold: 40
+    attackDamage: 9
+    attackRange: 2
+    attackRate: 1
+    equip: 1
+  - id: 5001
+    name: "\uB3CC\uB9F9\uC774"
+    iconImg: ItemIcon/itemicon_diamond_red
+    sellGold: 55
+    attackDamage: 1
+    attackRange: 1
+    attackRate: 1
+    equip: 1
+  - id: 1001006
+    name: "\uC7A1]\uB9C8\uBC95\uC0AC\uBAA8\uC790"
+    iconImg: ItemIcon/itemicon_equipment_helmet_witch
+    sellGold: 70
+    attackDamage: 1
+    attackRange: 1
+    attackRate: 1
+    equip: 0
+  - id: 1001007
+    name: "\uC7A1]\uC870\uB358\uB9C1"
+    iconImg: ItemIcon/itemicon_equipment_ring
+    sellGold: 80
+    attackDamage: 1
+    attackRange: 1
+    attackRate: 1
+    equip: 0
+  - id: 1001008
+    name: "\uC7A1]\uD560\uBC30\uAC80"
+    iconImg: ItemIcon/itemicon_equipment_weapon_spear
+    sellGold: 90
+    attackDamage: 1
+    attackRange: 1
+    attackRate: 1
+    equip: 0
+  - id: 1001009
+    name: "\uC7A1]\uC708\uB4DC\uD3EC\uC2A4"
+    iconImg: ItemIcon/itemicon_equipment_weapon_bow
+    sellGold: 100
+    attackDamage: 1
+    attackRange: 1
+    attackRate: 1
+    equip: 0
+  - id: 1001010
+    name: "\uC7A1]\uD480\uD50C\uB808\uC774\uD2B8\uC544\uBA38"
+    iconImg: ItemIcon/itemicon_equipment_armor
+    sellGold: 110
+    attackDamage: 1
+    attackRange: 1
+    attackRate: 1
+    equip: 0
+  - id: 2001001
+    name: "\uBE68\uAC04\uBB3C\uC57D"
+    iconImg: ItemIcon/itemicon_flask_red
+    sellGold: 100
+    attackDamage: 50
+    attackRange: 1
+    attackRate: 1
+    equip: 0
+  - id: 2001002
+    name: "\uBCF4\uB77C\uBB3C\uC57D"
+    iconImg: ItemIcon/itemicon_flask_purple
+    sellGold: 200
+    attackDamage: 100
+    attackRange: 1
+    attackRate: 1
+    equip: 0
+  - id: 2001003
+    name: "\uCD08\uB85D\uBB3C\uC57D"
+    iconImg: ItemIcon/itemicon_flask_green
+    sellGold: 300
+    attackDamage: 150
+    attackRange: 1
+    attackRate: 1
+    equip: 0
+  - id: 2001004
+    name: "\uD30C\uB791\uBB3C\uC57D"
+    iconImg: ItemIcon/itemicon_flask_blue
+    sellGold: 400
+    attackDamage: 200
+    attackRange: 1
+    attackRate: 1
+    equip: 0
+  TipMess:
+  - id: 10001
+    sceneName: BossScene
+    tipText: "\uBCF4\uC2A4 \uACF5\uACA9\uC740 \uB9E4\uC6B0 \uC704\uD611\uC801\uC785\uB2C8\uB2E4."
+  - id: 10002
+    sceneName: 'BossScene '
+    tipText: "\uBCF4\uC2A4 \uCC98\uCE58\uC5D0 \uC131\uACF5\uD558\uBA74 \uC804\uD22C\uB9F5\uC758
+      \uB09C\uC774\uB3C4\uAC00 \uC0C1\uC2B9\uD569\uB2C8\uB2E4."
+  - id: 20001
+    sceneName: BaseScene
+    tipText: "3\uC2DC NPC\uB294 \uBB3C\uC57D\uC744 \uD310\uB9E4\uD569\uB2C8\uB2E4."
+  - id: 20002
+    sceneName: BaseScene
+    tipText: "9\uC2DC NPC\uB294 \uBB34\uAE30\uAC15\uD654\uB97C \uD560\uC218 \uC788\uC2B5\uB2C8\uB2E4."
+  - id: 30001
+    sceneName: BattleScene
+    tipText: "\uC911\uAC04\uBCF4\uC2A4\uB97C \uCC98\uCE58\uD558\uBA74 \uBB34\uAE30\uB97C
+      \uB4DC\uB78D\uD569\uB2C8\uB2E4."
+  - id: 30002
+    sceneName: BattleScene
+    tipText: "\uC911\uAC04\uBCF4\uC2A4\uB294 \uC77C\uBC18 \uBAAC\uC2A4\uD130\uBCF4\uB2E4
+      \uAC15\uD569\uB2C8\uB2E4."
+  Language:
+  - id: 1
+    KOR: "\uC548\uB155\uD558\uC138\uC694."
+    ENG: Hello.
+  - id: 2
+    KOR: 
+    ENG: 
+  - id: 3
+    KOR: 
+    ENG: 
+  - id: 4
+    KOR: 
+    ENG: 
+  MonsterData:
+  - id: 101001
+    monsterName: "\uBC15\uC2A4\uBAAC"
+    monsterType: 1
+    moveSpeed: 2
+    attackDamage: 2
+    maxHP: 10
+    dropID: 1001006
+    dropRate: 10
+    EXP: 3
+  - id: 101002
+    monsterName: "\uCD08\uB85D\uBAAC"
+    monsterType: 2
+    moveSpeed: 2
+    attackDamage: 3
+    maxHP: 15
+    dropID: 1001007
+    dropRate: 10
+    EXP: 3
+  - id: 102001
+    monsterName: "\uAC15\uD55C\uBC15\uC2A4\uBAAC"
+    monsterType: 1
+    moveSpeed: 2
+    attackDamage: 10
+    maxHP: 40
+    dropID: 1001006
+    dropRate: 30
+    EXP: 15
+  - id: 102002
+    monsterName: "\uAC15\uD55C\uCD08\uB85D\uBAAC"
+    monsterType: 2
+    moveSpeed: 2
+    attackDamage: 12
+    maxHP: 45
+    dropID: 1001007
+    dropRate: 40
+    EXP: 15
+  - id: 501001
+    monsterName: "\uC6B0\uB974\uC790\uC774"
+    monsterType: 6
+    moveSpeed: 3
+    attackDamage: 20
+    maxHP: 500
+    dropID: 1001
+    dropRate: 70
+    EXP: 100
+  LevelEXP:
+  - curLevel: 1
+    nextEXP: 15
+  - curLevel: 2
+    nextEXP: 34
+  - curLevel: 3
+    nextEXP: 57
+  - curLevel: 4
+    nextEXP: 92
+  - curLevel: 5
+    nextEXP: 135
+  - curLevel: 6
+    nextEXP: 372
+  - curLevel: 7
+    nextEXP: 560
+  - curLevel: 8
+    nextEXP: 840
+  - curLevel: 9
+    nextEXP: 1242
+  - curLevel: 10
+    nextEXP: 1242
+  - curLevel: 11
+    nextEXP: 1242
+  - curLevel: 12
+    nextEXP: 1242
+  - curLevel: 13
+    nextEXP: 1242
+  - curLevel: 14
+    nextEXP: 1490
+  - curLevel: 15
+    nextEXP: 1788
+  - curLevel: 16
+    nextEXP: 2145
+  - curLevel: 17
+    nextEXP: 2574
+  - curLevel: 18
+    nextEXP: 3088
+  - curLevel: 19
+    nextEXP: 3705
+  - curLevel: 20
+    nextEXP: 4446
+  - curLevel: 21
+    nextEXP: 5335
+  - curLevel: 22
+    nextEXP: 6402
+  - curLevel: 23
+    nextEXP: 7682
+  - curLevel: 24
+    nextEXP: 9218
+  - curLevel: 25
+    nextEXP: 11061
+  - curLevel: 26
+    nextEXP: 13273
+  - curLevel: 27
+    nextEXP: 15927
+  - curLevel: 28
+    nextEXP: 19112
+  - curLevel: 29
+    nextEXP: 19112
+  - curLevel: 30
+    nextEXP: 19112

@@ -31,6 +31,7 @@ public class PlayerData
     public int maxMP;
     public int gold;
     public int uidCounter;
+    public Inventory inventory;
 }
 
 public class GameManager : Singleton<GameManager>
