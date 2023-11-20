@@ -74,6 +74,12 @@ public class DropItem : MonoBehaviour
         if(isDrop && other.CompareTag("Player"))
         {
             // 인벤토리로 습득 처리
+            InventoryitemData data = new InventoryitemData();
+
+            data.itemID = 1001;
+            data.amount = 1;
+
+            GameManager.Inst.LootingItem(data);
             Destroy(gameObject);
         }
     }

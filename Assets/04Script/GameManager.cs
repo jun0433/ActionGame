@@ -52,7 +52,27 @@ public class GameManager : Singleton<GameManager>
         dataPath = Application.persistentDataPath + "/save";
         pData = new PlayerData();
         SaveData();
+
+        #region _TableData_
+        table = Resources.Load<ActionGame>("ActionGame");
+
+        // 리스트로 되어 있는 ItemData를 빠른 탐색을 위해 Dictionary로 변경 작업
+        for(int i = 0; i< table.ItemData.Count; i++)
+        {
+            dicItemData.Add(table.ItemData[i].id, table.ItemData[i]);
+        }
+
+        #endregion
     }
+
+    #region _TableData_
+    private ActionGame table;
+    private Dictionary<int, ItemData_Entity> dicItemData = new Dictionary<int, ItemData_Entity>();
+
+
+
+    #endregion
+
 
     private void OnLevelWasLoaded(int level)
     {
@@ -67,6 +87,18 @@ public class GameManager : Singleton<GameManager>
     public void UpdateGMinfo()
     {
         LoadData();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            for(int i = 0; i < pData.inventory.MAXITEMCOUNT; i++)
+            {
+                Debug.Log(i + "번째 아이템은" + pData.inventory.GetItemList()[i].itemID + " 를 " + pData.inventory.GetItemList()[i].amount + "개 가지고 있습니다.");
+            }
+            
+        }
     }
 
     #region Save&Load
@@ -118,4 +150,22 @@ public class GameManager : Singleton<GameManager>
 
     #endregion
 
+
+    #region _Items_
+    // 아이템 습득처리하는 함수
+    public bool LootingItem(InventoryitemData newItem)
+    {
+        if (!pData.inventory.IsFull())
+        {
+            pData.inventory.AddItem(newItem);
+            return true;
+        }
+        return false;
+    }
+
+    public void DeleteItem(InventoryitemData deleteItem)
+    {
+        pData.inventory.DeleteItem(deleteItem);
+    }
+    #endregion
 }
