@@ -29,6 +29,9 @@ public class DropItem : MonoBehaviour
         // up방향으로 5f만큼 힘을 줌
         rig.AddForce(Vector3.up * 5f, ForceMode.Impulse);
 
+        moveTrans = transform.GetChild(0);
+        InitDropitem();
+
     }
 
 
