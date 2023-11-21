@@ -38,13 +38,56 @@ public class InventorySlot : MonoBehaviour
         focus = transform.GetChild(1).gameObject;
         amount = transform.GetChild(2).GetComponent<TextMeshProUGUI>();
         button = GetComponent<Button>();
+
         button.onClick.AddListener(onClick_SelectButton);
 
     }
 
+    // 슬롯이 보여질 때, 아이콘, 갯수 등을 갱신하는 함수
+    public void DrawItem(InventoryitemData newItem)
+    {
+        // 테이블에 데이터가 있으면
+        if(GameManager.Inst.GetItemData(newItem.itemID, out ItemData_Entity itemData))
+        {
+            // Resources 폴더에서 리소스 로딩
+            icon.sprite = Resources.Load<Sprite>(itemData.iconImg);
+            ChangeAmount(newItem.amount);
+            isEmpty = false;
+            icon.enabled = true;
+        }
+        else
+        {
+            Debug.Log("InventorySlost.cs - DrawItem() - 테이블에 해당하는 ID는 없다: " + newItem.itemID);
+        }
+    }
+
+    // 슬롯의 아이콘을 빈칸으로 처리하는 함수
+    public void ClearSlot()
+    {
+        focus.SetActive(false);
+        isSelect = false;
+        amount.enabled = false;
+        isEmpty = true;
+    }
+    
+    // 보유 개수를 바꿔주는 함수
+    public void ChangeAmount(int newAmount)
+    {
+        amount.text = newAmount.ToString();
+    }
+
+    public void SelectSlot(bool isSelect)
+    {
+        focus.SetActive(isSelect);
+    }
+
     private void onClick_SelectButton()
     {
-
+        if (!isEmpty)
+        {
+            isSelect = true;
+            SelectSlot(isSelect);
+        }
     }
 
 

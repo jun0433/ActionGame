@@ -70,6 +70,12 @@ public class GameManager : Singleton<GameManager>
     private Dictionary<int, ItemData_Entity> dicItemData = new Dictionary<int, ItemData_Entity>();
 
 
+    // 콜바이 벨류
+    public bool GetItemData(int ItemID, out ItemData_Entity data)
+    {
+        return dicItemData.TryGetValue(ItemID, out data);
+    }
+
 
     #endregion
 
@@ -167,5 +173,43 @@ public class GameManager : Singleton<GameManager>
     {
         pData.inventory.DeleteItem(deleteItem);
     }
+    #endregion
+
+
+    #region _PlayerDataRead_
+    public int PlayerGold
+    {
+        get => pData.gold;
+        set => pData.gold = value;
+    }
+
+    public string PlayerName
+    {
+        get => pData.userNickName;
+    }
+
+    public int PlayerLevel
+    {
+        get => pData.level;
+    }
+
+    public int PlayerCurrentEXP
+    {
+        get => pData.curEXP;
+    }
+
+    public int PlayerUID
+    {
+        get
+        {
+            return ++pData.uidCounter;
+        }
+    }
+
+    public Inventory Inven
+    {
+        get => pData.inventory;
+    }
+
     #endregion
 }

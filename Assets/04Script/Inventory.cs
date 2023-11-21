@@ -22,6 +22,7 @@ public class Inventory
     private int curItemCount;
     public int CURITEMCOUNT
     {
+        get => curItemCount;
         set => curItemCount = value;
     }
 
