@@ -53,7 +53,6 @@ public class GameManager : Singleton<GameManager>
         base.Awake();
         dataPath = Application.persistentDataPath + "/save";
         pData = new PlayerData();
-        SaveData();
 
         #region _TableData_
         table = Resources.Load<ActionGame>("ActionGame");

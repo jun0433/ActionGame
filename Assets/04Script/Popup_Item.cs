@@ -7,6 +7,14 @@ using UnityEngine.UI;
 // 다중 상속 불가(인터페이스는 허용)
 public class Popup_Item : PopupBase, IPopup
 {
+
+
+
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+    }
+
     public void PopupClose()
     {
         GetComponent<Image>().enabled = false;
@@ -16,4 +24,6 @@ public class Popup_Item : PopupBase, IPopup
     {
         GetComponent<Image>().enabled = true;
     }
+
+
 }

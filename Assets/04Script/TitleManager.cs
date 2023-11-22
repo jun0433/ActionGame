@@ -78,7 +78,7 @@ public class TitleManager : MonoBehaviour
     public void OnClick_CreateBtn()
     {
         // 계정 생성 성공
-        if(newNickName.Length <= 2)
+        if(newNickName.Length >= 2)
         {
             LeanTween.scale(nickNamePopup, Vector3.zero, 0.7f).setEase(LeanTweenType.easeInOutElastic);
             enterText.enabled = true;
