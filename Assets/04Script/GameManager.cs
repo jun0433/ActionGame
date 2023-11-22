@@ -26,6 +26,7 @@ public class PlayerData
     public string userNickName;
     public int level;
     public int curEXP;
+    public int curHP;
     public int maxHP;
     public int curMP;
     public int maxMP;
@@ -49,6 +50,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Awake()
     {
+        base.Awake();
         dataPath = Application.persistentDataPath + "/save";
         pData = new PlayerData();
         SaveData();
@@ -147,6 +149,7 @@ public class GameManager : Singleton<GameManager>
     public void AsyncLoadNextScene(SceneName nextName)
     {
         nextLoadSceneName = nextName;
+        Debug.Log("씬 로딩 매니저" + nextLoadSceneName.ToString());
 
         // 페이드 인 아웃 작업
         // 세이브 생성 작업
@@ -154,6 +157,19 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(SceneName.LoadingScene.ToString());
     }
 
+    #endregion
+
+    #region _UserData_
+    public void CreateUserData(string newNickName)
+    {
+        pData.userNickName= newNickName;
+        pData.curEXP = 0;
+        pData.level = 1;
+        pData.gold = 5000;
+        pData.curHP = pData.maxHP = 500;
+        pData.curMP = pData.maxMP = 100;
+        pData.uidCounter = 0;
+    }
     #endregion
 
 
