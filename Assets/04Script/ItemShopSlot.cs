@@ -166,16 +166,55 @@ public class ItemShopSlot : MonoBehaviour
 
     public void OnClick_LeftBtn()
     {
+        if(curCount > 0)
+        {
+            curCount--;
+        }
+        tradeCountText.text = curCount.ToString();
+        totalGold = curCount * priceGold;
+
+        // 해당 슬롯의 최종 거래금액을 생성해낸 팝업 스크립트 객체에 전달
 
     }
 
     public void OnClick_RightBtn()
     {
+        if(curCount < tradeMaxCount)
+        {
+            curCount++;
+        }
+        tradeCountText.text = curCount.ToString();
+        totalGold = curCount * priceGold;
+
+        // 해당 슬롯의 최종 거래금액을 생성해낸 팝업 스크립트 객체에 전달
 
     }
     public void OnClick_MaxBtn()
     {
+        curCount = tradeMaxCount;
+        tradeCountText.text = curCount.ToString();
+        totalGold = curCount * priceGold;
 
+        // 해당 슬롯의 최종 거래금액을 생성해낸 팝업 스크립트 객체에 전달
+    }
+
+
+    // 거래를 수행ㅎ라 때, 거래 dlxp ID, 거래 횟수, 총 거래 금액을 반환
+    public bool GetSellCount(out int _sellItemID, out int _sellCount, out int _SellGold)
+    {
+        _sellItemID = itemID;
+        _sellCount = curCount;
+        _SellGold = totalGold;
+        return true;
+    }
+
+
+    public bool GetBuyCount(out int _buyItemID, out int _buyCount, out int _buyGold)
+    {
+        _buyItemID = itemID;
+        _buyCount = curCount;
+        _buyGold = totalGold;
+        return true;
     }
 
 
