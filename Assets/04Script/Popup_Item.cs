@@ -10,8 +10,9 @@ public class Popup_Item : PopupBase, IPopup
 
     [SerializeField]
     private GameObject slotPrefab;
-
+    [SerializeField]
     private RectTransform sellRect;
+    [SerializeField]
     private RectTransform buyRect;
     private TextMeshProUGUI balanceText; // 유저가 가지고 있는 금팩
     private TextMeshProUGUI amountText; // 유저가 거래하려고 등록한 총액
@@ -26,13 +27,17 @@ public class Popup_Item : PopupBase, IPopup
 
     private GameObject obj;
 
+    private Button sellTapBtn;
+    private Button buyTapBtn;
+    private Button applyBtn;
+
     private void Awake()
     {
-        obj = GameObject.Find("SellTapView").transform.GetChild(0).GetChild(0).gameObject;
-        sellRect = (RectTransform)obj.transform;
+        //obj = GameObject.Find("SellTapView").transform.GetChild(0).GetChild(0).gameObject;
+        //sellRect = (RectTransform)obj.transform;
 
-        obj = GameObject.Find("BuyTapView").transform.GetChild(0).GetChild(0).gameObject;
-        buyRect = (RectTransform)obj.transform;
+        //obj = GameObject.Find("BuyTapView").transform.GetChild(0).GetChild(0).gameObject;
+        //buyRect = (RectTransform)obj.transform;
 
         obj = GameObject.Find("PlayerBalance");
         balanceText = obj.GetComponent<TextMeshProUGUI>();
@@ -43,12 +48,14 @@ public class Popup_Item : PopupBase, IPopup
         sellView = GameObject.Find("SellTabView");
         buyView = GameObject.Find("BuyTabView");
 
-        // 각각 탭에 사용해야하는 슬롯등을 생성
-        inventory = GameManager.Inst.Inven;
+        // 각각 탭에 사용해야하는 슬롯등을 생성        inventory = GameManager.Inst.Inven;
         for(int i =0; i < inventory.MAXITEMCOUNT; i++)
         {
             obj = Instantiate(slotPrefab, sellRect);
+            Debug.Log(obj.gameObject.name + " 오브젝트 생성 확인");
             shopSlot = obj.GetComponent<ItemShopSlot>();
+            if (shopSlot == null)
+                Debug.Log("스크립트 확인");
             shopSlot.CreateSlot(this, i);
             obj.name = "SellSlot_" + i;
             sellSlotList.Add(shopSlot);
@@ -56,15 +63,26 @@ public class Popup_Item : PopupBase, IPopup
 
         for (int i = 0; i <4; i++)
         {
-            obj = Instantiate(slotPrefab, sellRect);
+            obj = Instantiate(slotPrefab, buyRect);
             shopSlot = obj.GetComponent<ItemShopSlot>();
             shopSlot.CreateSlot(this, i);
             obj.name = "BuySlot_" + i;
             buySlotList.Add(shopSlot);
-        } 
+        }
 
 
-        gameObject.SetActive(false);
+        obj = GameObject.Find("SellTapBtn");
+        sellTapBtn = obj.GetComponent<Button>();
+        sellTapBtn.onClick.AddListener(OnClick_SellTap);
+        obj = GameObject.Find("BuyTapBtn");
+        buyTapBtn = obj.GetComponent<Button>();
+        buyTapBtn.onClick.AddListener(OnClick_BuyTap);
+        obj = GameObject.Find("ApplyBtn");
+        applyBtn = obj.GetComponent<Button>();
+        applyBtn.onClick.AddListener(OnClick_Apply);
+
+        //gameObject.SetActive(false);
+        PopupClose();
     }
 
     public void PopupClose()
@@ -75,6 +93,7 @@ public class Popup_Item : PopupBase, IPopup
     public void PopupOpen()
     {
         // 정보 갱신.
+        RefreshData();
         gameObject.LeanScale(Vector3.one, 0.7f).setEase(LeanTweenType.easeInOutElastic);
     }
 

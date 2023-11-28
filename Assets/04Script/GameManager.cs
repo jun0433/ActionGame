@@ -64,6 +64,8 @@ public class GameManager : Singleton<GameManager>
         }
 
         #endregion
+
+        UpdateGMinfo();
     }
 
     #region _TableData_
