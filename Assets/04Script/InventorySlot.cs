@@ -68,6 +68,7 @@ public class InventorySlot : MonoBehaviour
         isSelect = false;
         amount.enabled = false;
         isEmpty = true;
+        icon.enabled= false;
     }
     
     // 보유 개수를 바꿔주는 함수

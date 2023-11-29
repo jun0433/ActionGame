@@ -48,7 +48,8 @@ public class Popup_Item : PopupBase, IPopup
         sellView = GameObject.Find("SellTabView");
         buyView = GameObject.Find("BuyTabView");
 
-        // 각각 탭에 사용해야하는 슬롯등을 생성        inventory = GameManager.Inst.Inven;
+        // 각각 탭에 사용해야하는 슬롯등을 생성
+        inventory = GameManager.Inst.Inven;
         for(int i =0; i < inventory.MAXITEMCOUNT; i++)
         {
             obj = Instantiate(slotPrefab, sellRect);
@@ -166,7 +167,7 @@ public class Popup_Item : PopupBase, IPopup
     // NPC가 판매하는 목록을 갱신하는 함수
     private void RefreshBuyList()
     {
-        for(int i = 0; i <4; i++)
+        for (int i = 0; i < 4; i++)
         {
             data.itemID = 2001001 + i;
             data.amount = 999;

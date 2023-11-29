@@ -47,9 +47,7 @@ public class ItemShopSlot : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("생성확인");
-        obj = transform.Find("Icon").gameObject;
-        Debug.Log("생성확인1111");
+        obj = transform.Find("IconBackground").GetChild(0).gameObject;
         if (obj != null)
         {
             if(!obj.TryGetComponent<Image>(out icon))
@@ -58,7 +56,6 @@ public class ItemShopSlot : MonoBehaviour
             }
 
         }
-        Debug.Log("생성확인1");
         obj = transform.Find("ItemName").gameObject;
         if (obj != null)
         {
@@ -67,7 +64,6 @@ public class ItemShopSlot : MonoBehaviour
                 Debug.Log("ItemShopSlot.cs - Awake() - itemName 참조 실패");
             }
         }
-        Debug.Log("생성확인2");
         obj = transform.Find("Price").gameObject;
         if (obj != null)
         {
@@ -76,7 +72,6 @@ public class ItemShopSlot : MonoBehaviour
                 Debug.Log("ItemShopSlot.cs - Awake() - priceGold 참조 실패");
             }
         }
-        Debug.Log("생성확인3");
         obj = transform.Find("SellCount").gameObject;
         if (obj != null)
         {
@@ -87,7 +82,6 @@ public class ItemShopSlot : MonoBehaviour
             }
             
         }
-        Debug.Log("생성확인4");
         obj = transform.Find("LeftBtn").gameObject;
         if (obj != null)
         {
@@ -100,8 +94,6 @@ public class ItemShopSlot : MonoBehaviour
                 leftBtn.onClick.AddListener(OnClick_LeftBtn);
             }
         }
-        Debug.Log("생성확인5");
-
         obj = transform.Find("RightBtn").gameObject;
         if (obj != null)
         {
@@ -115,8 +107,6 @@ public class ItemShopSlot : MonoBehaviour
             }
 
         }
-        Debug.Log("생성확인6");
-
         obj = transform.Find("MaxBtn").gameObject;
         if (obj != null)
         {
@@ -203,7 +193,7 @@ public class ItemShopSlot : MonoBehaviour
     }
 
 
-    // 거래를 수행할 때, 거래 dlxp ID, 거래 횟수, 총 거래 금액을 반환
+    // 거래를 수행할 때, 거래 아이템 ID, 거래 횟수, 총 거래 금액을 반환
     public bool GetSellCount(out int _sellItemID, out int _sellCount, out int _SellGold)
     {
         _sellItemID = itemID;
