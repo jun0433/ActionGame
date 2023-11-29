@@ -119,7 +119,6 @@ public class ItemShopSlot : MonoBehaviour
                 maxBtn.onClick.AddListener(OnClick_MaxBtn);
             }
         }
-        Debug.Log("생성확인7");
     }
 
     public void CreateSlot(Popup_Item shop, int index)

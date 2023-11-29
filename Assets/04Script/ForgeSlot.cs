@@ -43,6 +43,7 @@ public class ForgeSlot : MonoBehaviour
         if (!isSelect)
         {
             // 자신이 선택되었다고 부모 팝업에게 알림
+            forgePopup.SelectItem(data);
             SelectFocus(true);
         }
     }

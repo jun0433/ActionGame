@@ -8647,7 +8647,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 584798.06}
+  m_AnchoredPosition: {x: 0, y: 640190.2}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &982743904
@@ -11029,7 +11029,7 @@ RectTransform:
   m_GameObject: {fileID: 1165971605}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 636176670}
@@ -17966,7 +17966,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1027}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1000, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1914942335
@@ -18019,6 +18019,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46182d124ccaf40468019df24b13a17d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forgeSlotPrefab: {fileID: 6591315181420896688, guid: 0c9eaa59ec0fd1a4e8dd79badd0b9177, type: 3}
+  contentRect: {fileID: 670749105}
+  balanceText: {fileID: 1026712464}
+  enchantPrice: {fileID: 1952183378}
+  enchantLevel: {fileID: 776659196}
+  enchantAfter: {fileID: 692006910}
+  applyBtn: {fileID: 759790623}
+  forgeSlotList: []
 --- !u!1 &1915114672
 GameObject:
   m_ObjectHideFlags: 0

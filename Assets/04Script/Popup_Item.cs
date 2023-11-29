@@ -53,7 +53,6 @@ public class Popup_Item : PopupBase, IPopup
         for(int i =0; i < inventory.MAXITEMCOUNT; i++)
         {
             obj = Instantiate(slotPrefab, sellRect);
-            Debug.Log(obj.gameObject.name + " 오브젝트 생성 확인");
             shopSlot = obj.GetComponent<ItemShopSlot>();
             if (shopSlot == null)
                 Debug.Log("스크립트 확인");
