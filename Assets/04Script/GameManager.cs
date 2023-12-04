@@ -63,6 +63,11 @@ public class GameManager : Singleton<GameManager>
             dicItemData.Add(table.ItemData[i].id, table.ItemData[i]);
         }
 
+        for(int i =0; i <table.MonsterData.Count; i++)
+        {
+            dicMonsterData.Add(table.MonsterData[i].id, table.MonsterData[i]);
+        }
+
         #endregion
 
         UpdateGMinfo();
@@ -77,6 +82,14 @@ public class GameManager : Singleton<GameManager>
     public bool GetItemData(int ItemID, out ItemData_Entity data)
     {
         return dicItemData.TryGetValue(ItemID, out data);
+    }
+
+
+    private Dictionary<int, MonsterData> dicMonsterData = new Dictionary<int, MonsterData>();
+
+    public bool GetMonsterData(int monsterID, out MonsterData data)
+    {
+        return dicMonsterData.TryGetValue(monsterID, out data);
     }
 
 

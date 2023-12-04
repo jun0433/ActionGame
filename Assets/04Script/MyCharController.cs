@@ -101,4 +101,5 @@ public class MyCharController : MonoBehaviour
         anim.SetBool(aniHash_Walk, move != Vector3.zero);
 
     }
+
 }

@@ -28,6 +28,8 @@ public class MonsterAI : MonoBehaviour
 
     private bool isInit; // isInit true AI 작동 상태, false 멈춘 상태
 
+
+    // Awake가 어떤 것이 먼저 호출 될 지 모름(상호 참조 유의)
     private void Awake()
     {
         navAgent = GetComponent<NavMeshAgent>();
@@ -134,7 +136,7 @@ public class MonsterAI : MonoBehaviour
         while(target != null)
         {
             // mosterbase 구현 후 공격 사거리로 체크
-            if(GetDistanceToTarget() < 5f)
+            if(GetDistanceToTarget() < monsterBase.STATE.attackRange)
             {
                 ChangeAIState(AI_State.Attack);
             }
@@ -155,14 +157,16 @@ public class MonsterAI : MonoBehaviour
         while (target!=null)
         {
             // 공격 사거리보다 큰 경우
-            if(GetDistanceToTarget() > 5f)
+            if(GetDistanceToTarget() > monsterBase.STATE.attackRange)
             {
                 ChangeAIState(AI_State.Chase);
             }
             transform.LookAt(target.transform); // 상대방을 향해서 회전
             // 공격 애니메이션 + 데미지 처리
+            //monsterBase.AttackTarget(target.GetComponent<ICharBase>()); // 다형성을 구현 대표적인 예시
 
-            yield return new WaitForSeconds(1f); // 공격 주기만큼 대기
+
+            yield return new WaitForSeconds(monsterBase.STATE.attackRate); // 공격 주기만큼 대기
         }
 
         ChangeAIState(AI_State.ReturnHome);

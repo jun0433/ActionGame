@@ -19219,6 +19219,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4919552855937253181, guid: a35e0494e80151f408345ee8c367f181, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5018601383374127753, guid: a35e0494e80151f408345ee8c367f181, type: 3}
       propertyPath: m_Name
       value: Boximon
