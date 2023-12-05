@@ -1,14 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Redcode.Pools;
 using UnityEngine.AI;
 
+
+public interface ICharBase
+{
+    public void TakeDamage(int damage); // 순수 가상 함수
+}
 
 
 // 몬스터의 스테이터스 관리
 // 몬스터 obj의 뿌리 스크립트 역할
 // 애니메이션 처리
 // 오브젝트 풀 처리
+
 
 public class UniteState
 {
@@ -28,7 +35,7 @@ public class UniteState
     }
 }
 
-public class MonsterBase : MonoBehaviour
+public class MonsterBase : MonoBehaviour, ICharBase, IPoolObject
 {
     private MonsterAI monsterAI;
     private NavMeshAgent agent;
@@ -51,8 +58,6 @@ public class MonsterBase : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
         mater = transform.GetChild(0).GetComponent<SkinnedMeshRenderer>().material;
-
-        mater.color = Color.black;
 
         Initmonster(101001);
     }
@@ -108,11 +113,11 @@ public class MonsterBase : MonoBehaviour
         }
     }
 
-    /*virtual public void AttackTarget(ICharBse newTarget)
+    virtual public void AttackTarget(ICharBase newTarget)
     {
-        anim.SetTrigger(hash_attack);
-        damageTarget = newTarget;
-    }*/
+        anim.SetTrigger(hash_Attack);
+        //damageTarget = newTarget;
+    }
 
     public void ApplyDamgage()
     {
@@ -126,12 +131,57 @@ public class MonsterBase : MonoBehaviour
             state.currentHP -= state.CalculateDamage(damage);
             if (state.currentHP < 0)
             {
-                anim.SetTrigger(hash_Die);
+                StartCoroutine(OnDie());
             }
         }
         else
         {
-            anim.SetTrigger(hash_Hit);
+            StartCoroutine(OnHit());
         }
     }
+
+
+    // 피격했을 때 처리하는 효과
+    IEnumerator OnHit()
+    {
+        anim.SetTrigger(hash_Hit);
+        for (int i =0; i < 3; i++)
+        {
+            mater.color = Color.red;
+            yield return new WaitForSeconds(0.1f);
+            mater.color = Color.white;
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    IEnumerator OnDie()
+    {
+        gameObject.layer = LayerMask.NameToLayer("DieChar"); // 충돌 발생 방지
+        mater.color = Color.gray;
+        anim.SetTrigger(hash_Die);
+        yield return new WaitForSeconds(2f);
+        // 오브젝트 풀에 반환처리
+    }
+
+    [SerializeField]
+    private string poolName;
+    
+    public string PoolName
+    {
+        get => poolName;
+    }
+
+    public void OnCreatedInPool()
+    {
+        // 최초 객체가 생성되고 오브젝트풀에 담겨질때 1회성으로 호출되는 이벤트.
+        Debug.Log("객체 생성" + gameObject.name);
+    }
+
+    public void OnGettingFromPool()
+    {
+        // 오브젝트 풀에서 꺼내질때 호출되는 이벤트
+        Debug.Log("객체 불러오기" + gameObject.name);
+    }
+
+    // 공격모션
 }

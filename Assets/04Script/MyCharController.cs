@@ -89,6 +89,14 @@ public class MyCharController : MonoBehaviour
         if (input_Attack01)
         {
             anim.SetTrigger(aniHash_Attack01);
+
+            // 임시코드
+            GameObject[] enemys = GameObject.FindGameObjectsWithTag("Enemy");
+
+            for(int i = 0; i < enemys.Length; i++)
+            {
+                // enemys[i].GetComponent<ICharBase>().TakeDamage(5);
+            }
         }
         else if (input_Attack02) // else if 를 쓴 이유는 두 개를 동시에 쓰지 못하게 하기 위해서
         {

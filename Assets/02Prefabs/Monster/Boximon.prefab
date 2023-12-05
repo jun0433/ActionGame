@@ -588,6 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fc67d6c4ebed1d478633b07d7adeefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  poolName: Boximon
 --- !u!114 &8946188289194462302
 MonoBehaviour:
   m_ObjectHideFlags: 0
