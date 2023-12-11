@@ -93,7 +93,7 @@ public class Popup_Item : PopupBase, IPopup
     public void PopupOpen()
     {
         // 정보 갱신.
-        RefreshData();
+        OnClick_SellTap();
         gameObject.LeanScale(Vector3.one, 0.7f).setEase(LeanTweenType.easeInOutElastic);
     }
 
